@@ -2,29 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
-
-typedef struct{
-  char task[30];
-  char due_date[10];
-  bool done;  
-}entry;
-
-char* get_file_name(char* file_num);
-int read_todo(FILE* file, entry* todo_list);
-void write_file(FILE* file, entry* todo_list, int size);
-int add_task(entry* todo_list, int size);
-void run_interface(char* file_name);
-void check_off(entry* todo_list);
-void print_todo(entry* todo_list, int size);
-
-int main(){
-  char file_num[10];
-  printf("Enter todo list #: ");
-  scanf("%s",file_num);
-  char* file_name = get_file_name(file_num);
-  run_interface(file_name);
-  return 0;
-}
+#include "todo.h"
 
 void run_interface(char* file_name){ 
   FILE* file = fopen(file_name, "a+");
